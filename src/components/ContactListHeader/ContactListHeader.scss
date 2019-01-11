@@ -1,0 +1,20 @@
+.contact-list-header {
+  background: #fff;
+  padding: 20px 0;
+  margin-bottom: 50px;
+  h1 {
+    padding: 0;
+    margin: 0;
+    font-size: 2em;
+  }
+}
+
+.contact-list-search {
+  position: relative;
+  i {
+    color: #cccccc;
+    position: absolute;
+    right: 10px;
+    top: calc(50% + -8px);
+  }
+}

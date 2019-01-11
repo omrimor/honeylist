@@ -1,4 +1,16 @@
 import React from 'react';
-import { Spinner } from 'reactstrap';
+import { isFunction } from 'lodash';
 
-export const withLoader = wrappedComponent => condition => condition ? <Spinner color="primary" /> : wrappedComponent
+export const withLoaderState = ({
+  loaderComponent: LoaderComp,
+  loaderPredicate,
+  emptyComponent: EmptyComp,
+  emptyPredicate,
+}) => WrappedComponent => props =>
+  isFunction(emptyPredicate) && emptyPredicate(props) ? (
+    <EmptyComp />
+  ) : isFunction(loaderPredicate) && loaderPredicate(props) ? (
+    <LoaderComp />
+  ) : (
+    <WrappedComponent {...props} />
+  );
